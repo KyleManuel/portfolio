@@ -1291,6 +1291,7 @@ $(document).ready(function() { "use strict";
 
   $('.popupTrigger[data-popup-id]').on('click', function(){
     var popupID = $(this).data('popup-id');
+    console.log($(this).data)
     window.showPopup(popupID);
   });
 
