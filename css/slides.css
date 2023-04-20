@@ -8477,6 +8477,10 @@ span.next-arrow svg {
   border-radius: 6px !important;
 }
 
+.popup .rounded {
+  height: 40em;
+}
+
 .rectangular {
   border-radius: 0 !important;
 }
