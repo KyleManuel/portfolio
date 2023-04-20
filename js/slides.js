@@ -604,23 +604,23 @@ $(document).ready(function() { "use strict";
       }
 
       //change slide on medium user scroll
-      if ((Math.abs(window.collectScrolls) >= minScrollToSlide) && (window.allowSlide) && (!window.sidebarShown) && (!window.popupShown) && (!window.disableOnScroll)){
+      // if ((Math.abs(window.collectScrolls) >= minScrollToSlide) && (window.allowSlide) && (!window.sidebarShown) && (!window.popupShown) && (!window.disableOnScroll)){
 
-        window.collectScrolls = 0;
+      //   window.collectScrolls = 0;
 
-        //should we even..
-        if ((scrollDirection === "down" && window.stage !== window.stages)||(scrollDirection === "up" && window.stage !== 1)){
+      //   //should we even..
+      //   if ((scrollDirection === "down" && window.stage !== window.stages)||(scrollDirection === "up" && window.stage !== 1)){
 
-          //ok let's go
-          if (window.inAction !== 1){
-            if (scrollDirection === "down"){
-              window.changeSlide('increase');
-            } else {
-              window.changeSlide('decrease');
-            }
-          }
-        }
-      }
+      //     //ok let's go
+      //     if (window.inAction !== 1){
+      //       if (scrollDirection === "down"){
+      //         window.changeSlide('increase');
+      //       } else {
+      //         window.changeSlide('decrease');
+      //       }
+      //     }
+      //   }
+      // }
     }
     //end on mousewheel event
   });

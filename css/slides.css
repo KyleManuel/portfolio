@@ -8347,7 +8347,12 @@ span.next-arrow svg {
   white-space: nowrap;
 }
 
+.gallery-wide {
+  width: 100% !important;
+}
+
 .wide {
+  height: 15em !important;
   width: 100% !important;
 }
 
