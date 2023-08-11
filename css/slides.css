@@ -8348,6 +8348,7 @@ span.next-arrow svg {
 }
 
 .gallery-wide {
+  height: 100%;
   width: 100% !important;
 }
 
