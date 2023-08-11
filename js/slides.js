@@ -1323,6 +1323,7 @@ $(document).ready(function() { "use strict";
       window.allowSlide = 0;
 
       //Add Popup ID in the stack
+      window.popupShown.slice(-1)[0]
       if (!window.popupShown) window.popupShown = [];
       window.popupShown.push(popupID);
 
