@@ -1,5 +1,14 @@
 <!doctype html>
 <html>
+<style>
+  #wellness-bg{
+    transition: opacity 280ms ease;
+    will-change: opacity;
+  }
+  #wellness-title{ 
+    transition: opacity 200ms ease; 
+  }
+</style>
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7344J5MSSB"></script>
@@ -702,6 +711,16 @@
     if (titleEl) titleEl.textContent = s.title;
     if (bgEl) bgEl.style.backgroundImage = `url(${s.bg})`;
     if (linkEl && s.url) linkEl.href = s.url;
+
+    if (titleEl){
+      titleEl.style.opacity = "0";
+      setTimeout(() => { titleEl.textContent = s.title; titleEl.style.opacity="1"; }, 120);
+    }
+    bgEl.style.opacity = "0";
+    setTimeout(() => {
+      bgEl.style.backgroundImage = `url(${s.bg})`;
+      bgEl.style.opacity = "1";
+    }, 180);
   }
 
   applyState(index);
