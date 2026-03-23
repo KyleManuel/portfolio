@@ -8,6 +8,52 @@
   #wellness-title{ 
     transition: opacity 200ms ease; 
   }
+  #wellness-link{
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  #wellness-link h1{
+    display: inline-block;
+    margin: 0;
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  #wellness-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: rgba(255,255,255,.55);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 160ms ease, background 160ms ease;
+    border-radius: 2px;
+  }
+
+  #wellness-link:hover h1,
+  #wellness-link:focus-visible h1{
+    opacity: 0.95;
+    transform: translateY(-1px);
+  }
+
+  #wellness-link:hover::after,
+  #wellness-link:focus-visible::after{
+    transform: scaleX(1);
+    background: rgba(255,255,255,.75);
+  }
+
+  /* accessible focus ring */
+  #wellness-link:focus-visible{
+    outline: 2px solid rgba(255,255,255,.45);
+    outline-offset: 6px;
+    border-radius: 8px;
+  }
 </style>
 <head>
   <!-- Google tag (gtag.js) -->
