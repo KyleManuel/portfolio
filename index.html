@@ -8,6 +8,111 @@
   #wellness-title{ 
     transition: opacity 500ms ease; 
   }
+  .contact-card{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 22px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  }
+
+  .contact-form{
+    text-align: left;
+  }
+
+  .contact-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .field-wrap{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .contact-input{
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 15px;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    box-sizing: border-box;
+  }
+
+  .contact-input::placeholder{
+    color: rgba(255,255,255,0.45);
+  }
+
+  .contact-input:focus{
+    border-color: rgba(255,255,255,0.32);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.06);
+  }
+
+  .contact-textarea{
+    min-height: 160px;
+    resize: vertical;
+  }
+
+  .contact-actions{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .contact-submit{
+    min-width: 180px;
+  }
+
+  .contact-status{
+    min-height: 24px;
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.85;
+  }
+
+  .contact-honeypot{
+    position: absolute !important;
+    left: -9999px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  @media (max-width: 767px){
+    .contact-card{
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .contact-grid{
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .contact-input{
+      padding: 13px 14px;
+      font-size: 14px;
+    }
+  }
 </style>
 <head>
   <!-- Google tag (gtag.js) -->
@@ -528,29 +633,66 @@
         <div class="fix-10-12">
           <h1 class="fix-9-12 huge ae-1">Thanks for stopping by!<br>Let's Connect</h1>
 
-          <ul class="grid equal fixedSpaces margin-top-3">
-            <li class="col-12-12 ae-4">
-              <div class="fix-3-12 equalElement">
-                <h6 class="uppercase opacity-4 margin-top-3 margin-bottom-2">General Inquiries</h6>
-                <p class="tiny"><a class="opacity-8" href="mailto:#">manuel.kyle@yahoo.com</a></p>
-              </div>
-              <div class="fix-3-12 equalElement">
-                <h6 class="uppercase opacity-4 margin-top-3 margin-bottom-2">Contact Me</h6>
-                <p class="tiny"><a class="opacity-8" href="sms:+17789265610">(+1) 778 926 5610</a></p>
-                <p class="tiny"><a class="opacity-8" href="sms:+639663780100">(+63) 966 378 0100</a></p>
-              </div>
-              <!-- <div class="fix-3-12 equalElement">
-                <h6 class="uppercase opacity-4 margin-top-3 margin-bottom-2">Stay in touch</h6>
-                <ul class="social-circles">
-                  <li><a class="social-googlePlus" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#googlePlus"></use></svg></a></li>
-                  <li><a class="social-behance" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#behance"></use></svg></a></li>
-                  <li><a class="social-dribbble" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#dribbble"></use></svg></a></li>
-                  <li><a class="social-instagram" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram"></use></svg></a></li>
-                  <li><a class="social-medium" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#medium"></use></svg></a></li>
-                </ul>
-              </div> -->
-            </li>
-          </ul>
+          <div class="fix-8-12 margin-top-4 ae-4">
+            <div class="contact-card">
+              <form id="contact-form" class="contact-form" novalidate>
+                <div class="contact-grid">
+                  <div class="field-wrap">
+                    <label for="name" class="contact-label">Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      class="contact-input"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div class="field-wrap">
+                    <label for="email" class="contact-label">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      class="contact-input"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <input
+                  type="text"
+                  name="company"
+                  id="company"
+                  class="contact-honeypot"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
+
+                <div class="field-wrap margin-top-2">
+                  <label for="message" class="contact-label">Message</label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    class="contact-input contact-textarea"
+                    placeholder="Tell me a little about your project, role, or message..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="contact-actions margin-top-3">
+                  <button type="submit" class="button blue rounded cropBottom contact-submit">
+                    <span class="button-text">Send Message</span>
+                  </button>
+                  <p id="form-status" class="contact-status" aria-live="polite"></p>
+                </div>
+              </form>
+            </div>
+        </div>
+
         </div>
         
       </div>
@@ -753,7 +895,9 @@
   }, { passive: false });
 
 })();
+
 </script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
