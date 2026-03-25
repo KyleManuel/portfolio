@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, message, company } = req.body;
+    const { name, email, message, company } = req.body || {};
 
     if (company) {
       return res.status(200).json({ ok: true });
