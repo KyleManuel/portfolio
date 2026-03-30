@@ -4,7 +4,7 @@
 
   const titleEl = document.getElementById("section-title");
   const bgEl = document.getElementById("section-bg");
-  const linkEl = document.getElementById("wellness-link");
+  const linkEl = document.getElementById("section-link");
 
   const states = [
     {
@@ -51,7 +51,7 @@
     }, 180);
   }
 
-//   applyState(index);
+  applyState(index);
 
   window.addEventListener("wheel", (e) => {
     if (!isWellnessActive()) return;

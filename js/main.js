@@ -57,7 +57,7 @@ function renderProjectSlide(p){
   `).join("");
 
   const titleHtml = p.link
-    ? `<a href="${escapeHtml(p.link)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+    ? `<a id="section-link" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
          <h1 id="section-title" class="ae-1">${escapeHtml(p.title)}</h1>
        </a>`
     : `<h1 id="section-title" class="ae-1">${escapeHtml(p.title)}</h1>`;
