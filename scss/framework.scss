@@ -3804,51 +3804,6 @@ $directions: fromBottom fromTop fromLeft fromRight fromCenter fromAbove fromBott
  *                           |___/
  */
 
-/* KEN BURNS */
-.slides.animated .kenBurns .background,
-.slides.animated .kenBurns.zoomin .background,
-.slides.animateOnEvent .kenBurns .background,
-.slides.animateOnEvent .kenBurns.zoomin .background {
-	transform: scale(1.08) rotate(-0.02deg);
-	opacity: 0.2;
-	z-index: 1;
-}
-
-.slides.animated .kenBurns:not(.video) .background,
-.slides.animated .kenBurns.zoomin:not(.video) .background,
-.slides.animateOnEvent .kenBurns:not(.video) .background,
-.slides.animateOnEvent .kenBurns.zoomin:not(.video) .background {
-	transition: transform 5s cubic-bezier(.3,0,.7,1), opacity 1s ease;
-}
-
-.animated .active.kenBurns:not(.video) .background,
-.animated .active.kenBurns.zoomin:not(.video) .background,
-.animated .active .kenBurns.zoomin:not(.video) .background,
-.animateOnEvent .active.kenBurns:not(.video) .background,
-.animateOnEvent .active.kenBurns.zoomin:not(.video) .background,
-.animateOnEvent .active .kenBurns.zoomin:not(.video) .background {
-	opacity: 1;
-	transform: translate3d(0,0,0);
-}
-
-.slides.animated .kenBurns.zoomin:not(.video) .background,
-.slides.animateOnEvent .kenBurns.zoomin:not(.video) .background  {
-	transform: translate3d(0,0,0);
-}
-.animated .active.kenBurns.zoomin:not(.video) .background,
-.windows .slides.animated .active.kenBurns.zoomin:not(.video) .background,
-.animateOnEvent .active.kenBurns.zoomin:not(.video) .background,
-.windows .slides.animateOnEvent .active.kenBurns.zoomin:not(.video) .background {
-	transform: scale(1.08) rotate(-0.02deg);
-}
-
-.mobile .kenBurns .background,
-.mobile .kenBurns.zoomin .background {
-	transition: 0s;
-	transform: none;
-}
-
-
 /* PARALLAX */
 .slides.animated .parallax:not(.video) .background,
 .slides.animateOnEvent .parallax:not(.video) .background {
