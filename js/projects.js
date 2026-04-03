@@ -83,7 +83,3 @@ const projects = [
 //     ]
 //   }
 ];
-
-const extraSections = [
-  { id:"care-health", src:"sections/care-health.html", after: "wellness" }
-];
