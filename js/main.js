@@ -57,13 +57,22 @@ function renderProjectSlide(p){
   `).join("");
 
   const titleHtml = p.link
-    ? `<a id="section-link" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
-         <h1 id="section-title" class="ae-1">${escapeHtml(p.title)}</h1>
+    ? `<a class="section-link" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+         <h1 class="section-title ae-1">${escapeHtml(p.title)}</h1>
        </a>`
-    : `<h1 id="section-title" class="ae-1">${escapeHtml(p.title)}</h1>`;
+    : `<h1 class="section-title ae-1">${escapeHtml(p.title)}</h1>`;
+
+  const pagerHtml = (p.id === "wellness") ? `
+    <div class="state-pager" aria-label="Wellness brands">
+      <button type="button" class="pager-dot is-active" data-state="0" aria-label="The Wellness Company"></button>
+      <button type="button" class="pager-dot" data-state="1" aria-label="Holistic Goddess"></button>
+      <button type="button" class="pager-dot" data-state="2" aria-label="1775 Coffee"></button>
+    </div>
+  ` : "";
 
   return `
   <section id="${escapeHtml(p.id)}" class="slide fade-6 ">
+    ${pagerHtml}
     <div class="content">
       <div class="container">
         <div class="wrap">
@@ -79,6 +88,6 @@ function renderProjectSlide(p){
         </div>
       </div>
     </div>
-    <div id="section-bg" class="background" style="background-image:url(${escapeHtml(p.bg)})"></div>
+    <div class="section-bg background" style="background-image:url(${escapeHtml(p.bg)})"></div>
   </section>`;
 }

@@ -1,9 +1,9 @@
 
-    #section-bg{
+  .section-bg{
     transition: opacity 580ms ease;
     will-change: opacity;
   }
-  #section-title{ 
+  .section-title{ 
     transition: opacity 500ms ease; 
   }
   .slide{
@@ -110,6 +110,43 @@
     left: -9999px !important;
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+
+  /* Left pager (bookmark) for the wellness section */
+  .state-pager{
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 300;          /* above bg + content overlay */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: auto;  /* important */
+  }
+
+  .pager-dot{
+    width: 10px;
+    height: 44px;
+    border-radius: 999px;
+    border: 0;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
+  }
+
+  .pager-dot:hover{
+    background: rgba(255,255,255,0.45);
+    transform: scaleX(1.15);
+  }
+
+  .pager-dot.is-active{
+    background: rgba(255,255,255,0.9);
+  }
+
+  @media (max-width: 768px){
+    .state-pager{ left: 12px; gap: 10px; }
+    .pager-dot{ height: 34px; width: 9px; }
   }
 
   @media (max-width: 767px){
