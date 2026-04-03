@@ -4,7 +4,7 @@
     will-change: opacity;
   }
   .section-title{ 
-    transition: opacity 500ms ease; 
+    transition: opacity 580ms ease; 
   }
   .slide{
     overflow: hidden;
