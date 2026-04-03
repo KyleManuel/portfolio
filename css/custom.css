@@ -1,9 +1,9 @@
 
-    #section-bg{
+  .section-bg{
     transition: opacity 580ms ease;
     will-change: opacity;
   }
-  #section-title{ 
+  .section-title{ 
     transition: opacity 500ms ease; 
   }
   .slide{

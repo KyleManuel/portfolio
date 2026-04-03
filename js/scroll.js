@@ -2,9 +2,9 @@
   const wellnessSection = document.getElementById("wellness");
   if (!wellnessSection) return;
 
-  const titleEl = document.getElementById("section-title");
-  const bgEl = document.getElementById("section-bg");
-  const linkEl = document.getElementById("section-link");
+  const titleEl = wellnessSection.querySelector("section-title");
+  const bgEl = wellnessSection.querySelector("section-bg");
+  const linkEl = wellnessSection.querySelector("section-link");
 
   const states = [
     {

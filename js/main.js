@@ -35,13 +35,6 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-
-const projectsMarker = document.getElementById("projects-root");
-const slidesHTML = projects.map(renderProjectSlide).join("");
-
-projectsMarker.insertAdjacentHTML("beforebegin", slidesHTML);
-projectsMarker.remove();
-
 function escapeHtml(s="") {
   return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
@@ -57,10 +50,10 @@ function renderProjectSlide(p){
   `).join("");
 
   const titleHtml = p.link
-    ? `<a id="section-link" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
-         <h1 id="section-title" class="ae-1">${escapeHtml(p.title)}</h1>
+    ? `<a class="section-link" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+         <h1 class="section-title" class="ae-1">${escapeHtml(p.title)}</h1>
        </a>`
-    : `<h1 id="section-title" class="ae-1">${escapeHtml(p.title)}</h1>`;
+    : `<h1 class="section-title" class="ae-1">${escapeHtml(p.title)}</h1>`;
 
   return `
   <section id="${escapeHtml(p.id)}" class="slide fade-6 ">
@@ -79,6 +72,61 @@ function renderProjectSlide(p){
         </div>
       </div>
     </div>
-    <div id="section-bg" class="background" style="background-image:url(${escapeHtml(p.bg)})"></div>
+    <div class="background section-bg" style="background-image:url(${escapeHtml(p.bg)})"></div>
   </section>`;
 }
+
+
+function renderProjectsNow() {
+  const marker = document.getElementById("projects-root");
+  if (!marker) return;
+
+  const slidesHTML = projects.map(renderProjectSlide).join("");
+  marker.insertAdjacentHTML("beforebegin", slidesHTML);
+  marker.remove();
+}
+
+// Insert a fetched section either at end OR after a specific slide id
+async function insertHtmlSection({ src, after, position }) {
+  const res = await fetch(src, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load ${src}`);
+  const html = await res.text();
+
+  if (after) {
+    const afterEl = document.getElementById(after);
+    if (afterEl) afterEl.insertAdjacentHTML("afterend", html);
+    else document.body.insertAdjacentHTML("beforeend", html);
+    return;
+  }
+
+  // default: end
+  document.body.insertAdjacentHTML("beforeend", html);
+}
+
+// Slides framework often builds nav on load; after injecting, you may need a refresh/re-init.
+// This is the safest generic approach: reload once after the section is injected.
+function refreshSlidesFramework() {
+  // If Slides exposes a public re-init, use it here.
+  // Many templates don't, so simplest is:
+  window.dispatchEvent(new Event("resize"));
+}
+
+async function boot() {
+  // 1) render normal project slides synchronously (no async)
+
+  // 2) Now page already works. Insert care-health LAST (or after something)
+  // (This won't block first paint.)
+  for (const s of (window.extraSections || extraSections || [])) {
+    if (s.position === "end" || !s.after) {
+      await insertHtmlSection({ src: s.src, position: "end" });
+    } else {
+      await insertHtmlSection({ src: s.src, after: s.after });
+    }
+  }
+
+  // 3) Optional: nudge slides framework in case it needs recalculations
+  refreshSlidesFramework();
+}
+
+renderProjectsNow();
+boot().catch(console.error);
