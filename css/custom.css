@@ -31,7 +31,7 @@
     #wellness .section-bg {
       background-position: center top;
       background-repeat: no-repeat;
-      background-size: auto;
+      background-size: cover;
       height: 10%;
     }
   }
