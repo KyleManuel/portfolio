@@ -265,8 +265,5 @@
     .bookmark-pager{ left: 12px; }
     .bookmark-pager .pager-dot{ padding: 9px 12px 9px 10px; }
     .bookmark-pager .pager-label{ font-size: 11px; display:none; }
-    .bookmark-pager .pager-dot.is-active .pager-label{
-      display: inline;
-    }
   }
   
