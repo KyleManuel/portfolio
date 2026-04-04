@@ -8,28 +8,43 @@
   const dots = Array.from(wellnessSection.querySelectorAll(".pager-dot"));
 
   const states = [
-    { title: "The Wellness Company", bg: "assets/img/gallery-6.png",     url: "https://twc.health" },
-    { title: "Holistic Goddess",     bg: "assets/img/gallery-6.2.webp",  url: "https://holisticgoddess.com/" },
-    { title: "1775 Coffee",          bg: "assets/img/gallery-6.3.webp",  url: "https://1775coffee.com/" }
+    {
+        title: "The Wellness Company",
+        bg: "assets/img/gallery-6.png",
+        mbBg: "assets/img/mob-twc-bg.png",
+        url: "https://twc.health"
+    },
+    {
+        title: "Holistic Goddess",
+        bg: "assets/img/gallery-6.2.webp",
+        mbBg: "assets/img/mob-hg-bg.png",
+        url: "https://holisticgoddess.com/"
+    },
+    {
+        title: "1775 Coffee",
+        bg: "assets/img/gallery-6.3.webp",
+        mbBg: "assets/img/mob-1775-bg.png",
+        url: "https://1775coffee.com/"
+    }
   ];
 
   let index = 0;
-  let lastSwitch = 0;
-
-  function isWellnessActive() {
-    const r = wellnessSection.getBoundingClientRect();
-    const mid = window.innerHeight / 2;
-    return r.top < mid && r.bottom > mid;
-  }
-
+  
   function setActiveDot(i){
-    dots.forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+    dots.forEach((d, idx) => {
+        const active = idx === i;
+        d.classList.toggle("is-active", active);
+        d.disabled = active; // prevents clicking active one
+        d.setAttribute("aria-current", active ? "true" : "false");
+    });
   }
 
   function applyState(i) {
     const s = states[i];
 
-    // fade title
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const chosenBg = (isMobile && s.mbBg) ? s.mbBg : s.bg;
+
     if (titleEl) {
       titleEl.style.opacity = "0";
       setTimeout(() => {
@@ -38,16 +53,14 @@
       }, 120);
     }
 
-    // fade bg
     if (bgEl) {
       bgEl.style.opacity = "0";
       setTimeout(() => {
-        bgEl.style.backgroundImage = `url(${s.bg})`;
+        bgEl.style.backgroundImage = `url(${chosenBg})`;
         bgEl.style.opacity = "1";
       }, 180);
     }
-
-    // link
+    
     if (linkEl) linkEl.href = s.url;
 
     setActiveDot(i);

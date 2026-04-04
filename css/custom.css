@@ -3,6 +3,10 @@
     transition: opacity 580ms ease;
     will-change: opacity;
   }
+  .section-link{
+    display: inline-block;
+    width: auto !important;
+  }
   .section-title{ 
     transition: opacity 580ms ease; 
   }
@@ -15,6 +19,14 @@
   
   .cards--mobile > [class*="col-"]{
     width: auto!important;
+  }
+
+  @media (max-width: 768px){
+    #wellness .section-bg {
+      background-position: center top;
+      background-repeat: no-repeat;
+      height: 10%;
+    }
   }
 
   @media (max-width: 767px){
@@ -112,11 +124,28 @@
     pointer-events: none !important;
   }
 
+  @media (max-width: 767px){
+    .contact-card{
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .contact-grid{
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .contact-input{
+      padding: 13px 14px;
+      font-size: 14px;
+    }
+  }
+
   /* Left pager (bookmark) for the wellness section */
   .state-pager{
     position: absolute;
     left: 22px;
-    top: 50%;
+    top: 25%;
     transform: translateY(-50%);
     z-index: 300;          /* above bg + content overlay */
     display: flex;
@@ -144,24 +173,100 @@
     background: rgba(255,255,255,0.9);
   }
 
+  .pager-dot:disabled{
+    cursor: default;
+    opacity: 1;
+    pointer-events: none;
+  }
+
   @media (max-width: 768px){
     .state-pager{ left: 12px; gap: 10px; }
     .pager-dot{ height: 34px; width: 9px; }
   }
 
-  @media (max-width: 767px){
-    .contact-card{
-      padding: 22px;
-      border-radius: 18px;
-    }
+  /* v2 bookmark style */
+  .bookmark-pager{
+    left: 18px;                 /* a bit more room for text */
+    gap: 10px;
+  }
 
-    .contact-grid{
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
+  /* turn each "dot" into a bookmark tab */
+  .bookmark-pager .pager-dot{
+    width: auto;
+    height: auto;
+    padding: 10px 14px 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(10,10,10,0.20);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
-    .contact-input{
-      padding: 13px 14px;
-      font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transform: translateX(-6px);
+    opacity: 0.85;
+
+    transition:
+      transform 200ms ease,
+      opacity 200ms ease,
+      background 200ms ease,
+      border-color 200ms ease;
+  }
+
+  /* the colored "spine" (bookmark strip) */
+  .bookmark-pager .pager-dot::before{
+    content: "";
+    width: 8px;
+    height: 26px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    flex: 0 0 auto;
+  }
+
+  /* label text */
+  .bookmark-pager .pager-label{
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  /* hover */
+  .bookmark-pager .pager-dot:hover{
+    transform: translateX(0);
+    opacity: 1;
+    background: rgba(10,10,10,0.32);
+    border-color: rgba(255,255,255,0.28);
+  }
+
+  /* active */
+  .bookmark-pager .pager-dot.is-active{
+    opacity: 1;
+    transform: translateX(4px);
+    background: rgba(10,10,10,0.42);
+    border-color: rgba(255,255,255,0.40);
+  }
+
+  /* color coding by state */
+  .bookmark-pager .pager-dot[data-state="0"]::before{ background: #7ec8ff; } /* light blue */
+  .bookmark-pager .pager-dot[data-state="1"]::before{ background: #d9b45a; } /* gold */
+  .bookmark-pager .pager-dot[data-state="2"]::before{ background: #7a4b2a; } /* coffee brown */
+
+  /* optional: tint the active tab slightly using the same color */
+  .bookmark-pager .pager-dot.is-active[data-state="0"]{ box-shadow: 0 0 0 3px rgba(126,200,255,0.18); }
+  .bookmark-pager .pager-dot.is-active[data-state="1"]{ box-shadow: 0 0 0 3px rgba(217,180,90,0.18); }
+  .bookmark-pager .pager-dot.is-active[data-state="2"]{ box-shadow: 0 0 0 3px rgba(122,75,42,0.18); }
+
+  @media (max-width: 768px){
+    .bookmark-pager{ left: 12px; }
+    .bookmark-pager .pager-dot{ padding: 9px 12px 9px 10px; }
+    .bookmark-pager .pager-label{ font-size: 11px; display:none; }
+    .bookmark-pager .pager-btn.is-active .pager-label{
+      display: inline;
     }
   }
+  

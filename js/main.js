@@ -63,15 +63,23 @@ function renderProjectSlide(p){
     : `<h1 class="section-title ae-1">${escapeHtml(p.title)}</h1>`;
 
   const pagerHtml = (p.id === "wellness") ? `
-    <div class="state-pager" aria-label="Wellness brands">
-      <button type="button" class="pager-dot is-active" data-state="0" aria-label="The Wellness Company"></button>
-      <button type="button" class="pager-dot" data-state="1" aria-label="Holistic Goddess"></button>
-      <button type="button" class="pager-dot" data-state="2" aria-label="1775 Coffee"></button>
+    <div class="state-pager bookmark-pager" aria-label="Wellness projects">
+      <button class="pager-dot is-active" type="button" data-state="0">
+        <span class="pager-label">The Wellness Company</span>
+      </button>
+
+      <button class="pager-dot" type="button" data-state="1">
+        <span class="pager-label">Holistic Goddess</span>
+      </button>
+
+      <button class="pager-dot" type="button" data-state="2">
+        <span class="pager-label">1775 Coffee</span>
+      </button>
     </div>
   ` : "";
 
   return `
-  <section id="${escapeHtml(p.id)}" class="slide fade-6 ">
+  <section id="${escapeHtml(p.id)}" class="slide">
     ${pagerHtml}
     <div class="content">
       <div class="container">
