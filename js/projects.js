@@ -6,6 +6,7 @@ const projects = [
     link: "https://twc.health",
     description: "Delivered conversion-focused Shopify features and full-stack enhancements for a live health e-commerce platform, improving performance, scalability, and purchase flow while supporting revenue-critical operations.",
     bg: "assets/img/gallery-6.png",
+    mbBg: "assets/img/mob-twc-bg.png",
     cards: [
       { img: "assets/img/twc-3.webp", text: "Developed multiple Shopify storefronts end-to-end—building custom theme sections/snippets, implementing API integrations, and shipping code updates and fixes to keep storefronts stable and conversion-focused." },
       { img: "assets/img/twc-1.webp", text: "Full setup and management of GitHub repository from scratch, migrating the codebase into version control, acting as code reviewer, and defining standards for branching, pull requests, and production-ready code." },
