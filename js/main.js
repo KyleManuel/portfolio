@@ -64,8 +64,13 @@ function renderProjectSlide(p){
 
   const pagerHtml = (p.id === "wellness") ? `
     <div class="state-pager bookmark-pager" aria-label="Wellness projects">
-      <button class="pager-dot is-active" type="button" data-state="0">
+      <button class="pager-dot" type="button" data-state="0">
         <span class="pager-label">The Wellness Company</span>
+
+        <span class="sub-wrap" aria-hidden="true">
+          <button class="sub-bm" type="button" data-sub="0">Intake Care</button>
+          
+        </span>
       </button>
 
       <button class="pager-dot" type="button" data-state="1">

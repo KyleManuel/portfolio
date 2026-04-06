@@ -285,9 +285,49 @@
   .bookmark-pager .pager-dot.is-active[data-state="1"]{ box-shadow: 0 0 0 3px rgba(217,180,90,0.18); }
   .bookmark-pager .pager-dot.is-active[data-state="2"]{ box-shadow: 0 0 0 3px rgba(122,75,42,0.18); }
 
+/* parent bookmark stacks into 2 rows */
+.bookmark-pager .pager-dot{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.bookmark-pager .sub-bm{
+  display: block;
+  margin: 0 0 5px 20px;
+  text-align: center;
+}
+
+.sub-bm{
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color:#fff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  opacity: 0.85;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
+.sub-bm:hover{
+  border-color: rgba(126,200,255,0.55);
+  background: rgba(126,200,255,0.14);
+  opacity: 1;
+}
+
   @media (max-width: 768px){
     .bookmark-pager{ left: 12px; }
     .bookmark-pager .pager-dot{ padding: 9px 12px 9px 10px; }
     .bookmark-pager .pager-label{ font-size: 11px; display:none; }
   }
   
+  @media (max-width: 768px){
+    .bookmark-pager .sub-bm, .bookmark-pager .sub-wrap{ display:none !important; }
+  }
