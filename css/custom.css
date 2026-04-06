@@ -29,6 +29,36 @@
       max-height: 5%;
       min-height: 0!important;
     }
+    .cards-wrap .cards-list{
+      justify-content: flex-start !important;
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      gap: 14px;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding: 0 16px 12px !important;
+    }
+
+    .cards-wrap .cards-list > li{
+      width: 84% !important;
+      flex: 0 0 auto !important;
+      scroll-snap-align: start;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .cards-wrap .cards-list img.wide{
+      height: auto !important;
+      max-height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* .cards-wrap .cards-list::-webkit-scrollbar{ display:none; }
+    .cards-wrap .cards-list{ scrollbar-width: none; } */
   }
 
   @media (max-width: 767px){
@@ -149,11 +179,11 @@
     left: 22px;
     top: 25%;
     transform: translateY(-50%);
-    z-index: 300;          /* above bg + content overlay */
+    z-index: 300;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    pointer-events: auto;  /* important */
+    pointer-events: auto;
   }
 
   .pager-dot{
@@ -186,13 +216,11 @@
     .pager-dot{ height: 34px; width: 9px; }
   }
 
-  /* v2 bookmark style */
   .bookmark-pager{
-    left: 18px;                 /* a bit more room for text */
+    left: 18px;
     gap: 10px;
   }
 
-  /* turn each "dot" into a bookmark tab */
   .bookmark-pager .pager-dot{
     width: auto;
     height: auto;
@@ -217,7 +245,6 @@
       border-color 200ms ease;
   }
 
-  /* the colored "spine" (bookmark strip) */
   .bookmark-pager .pager-dot::before{
     content: "";
     width: 8px;
@@ -227,7 +254,6 @@
     flex: 0 0 auto;
   }
 
-  /* label text */
   .bookmark-pager .pager-label{
     color: #fff;
     font-size: 12px;
@@ -237,7 +263,6 @@
     white-space: nowrap;
   }
 
-  /* hover */
   .bookmark-pager .pager-dot:hover{
     transform: translateX(0);
     opacity: 1;
@@ -245,7 +270,6 @@
     border-color: rgba(255,255,255,0.28);
   }
 
-  /* active */
   .bookmark-pager .pager-dot.is-active{
     opacity: 1;
     transform: translateX(4px);
@@ -253,12 +277,10 @@
     border-color: rgba(255,255,255,0.40);
   }
 
-  /* color coding by state */
-  .bookmark-pager .pager-dot[data-state="0"]::before{ background: #7ec8ff; } /* light blue */
-  .bookmark-pager .pager-dot[data-state="1"]::before{ background: #d9b45a; } /* gold */
-  .bookmark-pager .pager-dot[data-state="2"]::before{ background: #7a4b2a; } /* coffee brown */
+  .bookmark-pager .pager-dot[data-state="0"]::before{ background: #7ec8ff; }
+  .bookmark-pager .pager-dot[data-state="1"]::before{ background: #d9b45a; }
+  .bookmark-pager .pager-dot[data-state="2"]::before{ background: #7a4b2a; }
 
-  /* optional: tint the active tab slightly using the same color */
   .bookmark-pager .pager-dot.is-active[data-state="0"]{ box-shadow: 0 0 0 3px rgba(126,200,255,0.18); }
   .bookmark-pager .pager-dot.is-active[data-state="1"]{ box-shadow: 0 0 0 3px rgba(217,180,90,0.18); }
   .bookmark-pager .pager-dot.is-active[data-state="2"]{ box-shadow: 0 0 0 3px rgba(122,75,42,0.18); }

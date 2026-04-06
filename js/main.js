@@ -90,9 +90,9 @@ function renderProjectSlide(p){
             ${p.description ? `<p class="ae-2"><span class="opacity-8">${escapeHtml(p.description)}</span></p>` : ""}
           </div>
           ${cardsHtml ? `
-          <div class="fix-12-12 margin-top-3">
-            <ul class="${listClass}">${cardsHtml}</ul>
-          </div>` : ""}
+            <div class="fix-12-12 margin-top-3 cards-wrap">
+              <ul class="${listClass} cards-list">${cardsHtml}</ul>
+            </div>` : ""}
         </div>
       </div>
     </div>
