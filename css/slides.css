@@ -4384,52 +4384,52 @@ html.mobile .showForMobileInline {
  *                           |___/
  */
 /* KEN BURNS */
-.slides.animated . .background,
-.slides.animated ..zoomin .background,
-.slides.animateOnEvent . .background,
-.slides.animateOnEvent ..zoomin .background {
+.slides.animated .background,
+.slides.animated .zoomin .background,
+.slides.animateOnEvent .background,
+.slides.animateOnEvent .zoomin .background {
   -webkit-transform: scale(1.08) rotate(-0.02deg);
           transform: scale(1.08) rotate(-0.02deg);
   opacity: 0.2;
   z-index: 1;
 }
 
-.slides.animated .:not(.video) .background,
-.slides.animated ..zoomin:not(.video) .background,
-.slides.animateOnEvent .:not(.video) .background,
-.slides.animateOnEvent ..zoomin:not(.video) .background {
+.slides.animated :not(.video) .background,
+.slides.animated .zoomin:not(.video) .background,
+.slides.animateOnEvent :not(.video) .background,
+.slides.animateOnEvent .zoomin:not(.video) .background {
   transition: opacity 1s ease, -webkit-transform 5s cubic-bezier(0.3, 0, 0.7, 1);
   transition: transform 5s cubic-bezier(0.3, 0, 0.7, 1), opacity 1s ease;
   transition: transform 5s cubic-bezier(0.3, 0, 0.7, 1), opacity 1s ease, -webkit-transform 5s cubic-bezier(0.3, 0, 0.7, 1);
 }
 
-.animated .active.:not(.video) .background,
-.animated .active..zoomin:not(.video) .background,
-.animated .active ..zoomin:not(.video) .background,
-.animateOnEvent .active.:not(.video) .background,
-.animateOnEvent .active..zoomin:not(.video) .background,
-.animateOnEvent .active ..zoomin:not(.video) .background {
+.animated .active:not(.video) .background,
+.animated .active.zoomin:not(.video) .background,
+.animated .active .zoomin:not(.video) .background,
+.animateOnEvent .active:not(.video) .background,
+.animateOnEvent .active.zoomin:not(.video) .background,
+.animateOnEvent .active .zoomin:not(.video) .background {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 
-.slides.animated ..zoomin:not(.video) .background,
-.slides.animateOnEvent ..zoomin:not(.video) .background {
+.slides.animated .zoomin:not(.video) .background,
+.slides.animateOnEvent .zoomin:not(.video) .background {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 
-.animated .active..zoomin:not(.video) .background,
-.windows .slides.animated .active..zoomin:not(.video) .background,
-.animateOnEvent .active..zoomin:not(.video) .background,
-.windows .slides.animateOnEvent .active..zoomin:not(.video) .background {
+.animated .active.zoomin:not(.video) .background,
+.windows .slides.animated .active.zoomin:not(.video) .background,
+.animateOnEvent .active.zoomin:not(.video) .background,
+.windows .slides.animateOnEvent .active.zoomin:not(.video) .background {
   -webkit-transform: scale(1.08) rotate(-0.02deg);
           transform: scale(1.08) rotate(-0.02deg);
 }
 
-.mobile . .background,
-.mobile ..zoomin .background {
+.mobile .background,
+.mobile .zoomin .background {
   transition: 0s;
   -webkit-transform: none;
           transform: none;
@@ -4621,6 +4621,8 @@ html.mobile .showForMobileInline {
 .mobile .simplifiedMobile .slide.after,
 .mobile .simplifiedMobile .slide.before {
   visibility: visible;
+  -webkit-transform: none !important;
+          transform: none !important;
 }
 
 .mobile .simplifiedMobile .slide,
@@ -4650,6 +4652,8 @@ html.mobile .showForMobileInline {
 .mobile .simplifiedMobile [class*="ae-"] {
   visibility: visible !important;
   opacity: 1 !important;
+  -webkit-transform: none !important;
+          transform: none !important;
 }
 
 .scroll .parallax:not(.video) .background {
