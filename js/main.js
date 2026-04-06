@@ -113,7 +113,6 @@ function applyResponsiveBgs() {
     const mobile = el.dataset.mbbg || desktop;
     const next = isMobile ? mobile : desktop;
 
-    // avoid thrashing
     if (!el.style.backgroundImage.includes(next)) {
       el.style.backgroundImage = `url(${next})`;
     }

@@ -34,7 +34,7 @@
     dots.forEach((d, idx) => {
         const active = idx === i;
         d.classList.toggle("is-active", active);
-        d.disabled = active; // prevents clicking active one
+        d.disabled = active;
         d.setAttribute("aria-current", active ? "true" : "false");
     });
   }
