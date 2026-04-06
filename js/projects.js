@@ -18,7 +18,7 @@ const projects = [
     title: "Mondelez International",
     description: "Being the sole developer, I set up the repositories, pipelines, database, and storefront from scratch which has then been successfully deployed and maintained.",
     bg: "assets/img/gallery-4.png",
-    mbBg: "assets/img/mobile/mob-mi-bg.png",
+    mbBg: "assets/img/mob-mi-bg.png",
     cards: [
       { img: "assets/img/mu-1.png", heading: "Front-End Development" },
       { img: "assets/img/mu-2.png", heading: "Back-End Development" },
