@@ -22,9 +22,10 @@
   }
 
   @media (max-width: 768px){
-    #overview .background{
-      background-position: center top;
-      background-size: cover;
+    #wellness .section-bg,
+    #wellness .background{
+      transform: none !important;
+      animation: none !important;
     }
 
     #wellness .section-bg {

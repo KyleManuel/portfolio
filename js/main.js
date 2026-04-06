@@ -96,6 +96,29 @@ function renderProjectSlide(p){
         </div>
       </div>
     </div>
-    <div class="section-bg background" style="background-image:url(${escapeHtml(p.bg)})"></div>
+    <div
+      class="section-bg background"
+      data-bg="${escapeHtml(p.bg)}"
+      data-mbbg="${escapeHtml(p.mbBg || p.bg)}"
+      style="background-image:url(${escapeHtml(p.bg)})">
+    </div>
   </section>`;
 }
+
+function applyResponsiveBgs() {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  document.querySelectorAll(".section-bg[data-bg]").forEach((el) => {
+    const desktop = el.dataset.bg;
+    const mobile = el.dataset.mbbg || desktop;
+    const next = isMobile ? mobile : desktop;
+
+    // avoid thrashing
+    if (!el.style.backgroundImage.includes(next)) {
+      el.style.backgroundImage = `url(${next})`;
+    }
+  });
+}
+
+applyResponsiveBgs();
+window.addEventListener("resize", applyResponsiveBgs);
