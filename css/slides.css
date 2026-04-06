@@ -4621,8 +4621,6 @@ html.mobile .showForMobileInline {
 .mobile .simplifiedMobile .slide.after,
 .mobile .simplifiedMobile .slide.before {
   visibility: visible;
-  -webkit-transform: none !important;
-          transform: none !important;
 }
 
 .mobile .simplifiedMobile .slide,
@@ -4652,15 +4650,6 @@ html.mobile .showForMobileInline {
 .mobile .simplifiedMobile [class*="ae-"] {
   visibility: visible !important;
   opacity: 1 !important;
-  -webkit-transform: none !important;
-          transform: none !important;
-}
-
-.mobile .simplifiedMobile [class*="ae-"] {
-  visibility: visible !important;
-  opacity: 1 !important;
-  -webkit-transform: none !important;
-          transform: none !important;
 }
 
 .scroll .parallax:not(.video) .background {
