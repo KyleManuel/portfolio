@@ -182,7 +182,7 @@
     z-index: 300;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     pointer-events: auto;
   }
 
@@ -214,11 +214,6 @@
   @media (max-width: 768px){
     .state-pager{ left: 12px; gap: 10px; }
     .pager-dot{ height: 34px; width: 9px; }
-  }
-
-  .bookmark-pager{
-    left: 18px;
-    gap: 10px;
   }
 
   .bookmark-pager .pager-dot{
@@ -285,42 +280,59 @@
   .bookmark-pager .pager-dot.is-active[data-state="1"]{ box-shadow: 0 0 0 3px rgba(217,180,90,0.18); }
   .bookmark-pager .pager-dot.is-active[data-state="2"]{ box-shadow: 0 0 0 3px rgba(122,75,42,0.18); }
 
-/* parent bookmark stacks into 2 rows */
-.bookmark-pager .pager-dot{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
+  .bookmark-pager .pager-dot{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+  }
 
-.bookmark-pager .sub-bm{
-  display: block;
-  margin: 0 0 5px 20px;
-  text-align: center;
-}
+  .bookmark-pager .sub-wrap{
+    margin-left: 20px;
+    opacity: 0;
+    transform: translateY(-6px);
+    max-height: 0;
+    overflow: hidden;
 
-.sub-bm{
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.06);
-  color:#fff;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
-  opacity: 0.85;
-  cursor: pointer;
-  transition:
-    background-color 200ms ease,
-    border-color 200ms ease,
-    color 200ms ease,
-    transform 200ms ease,
-    opacity 200ms ease;
-}
+    transition: opacity 200ms ease, transform 200ms ease, max-height 240ms ease;
+  }
 
-.sub-bm:hover{
-  border-color: rgba(126,200,255,0.55);
-  background: rgba(126,200,255,0.14);
-  opacity: 1;
-}
+
+  .bookmark-pager .pager-dot.is-active[data-state="0"] + .sub-wrap{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 80px;
+  }
+
+  .bookmark-pager .sub-bm{
+    display: block;
+    text-align: center;
+  }
+
+  .sub-bm{
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06);
+    color:#fff;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    opacity: 0.85;
+    cursor: pointer;
+    transition:
+      background-color 500ms ease,
+      border-color 200ms ease,
+      color 500ms ease,
+      transform 500ms ease,
+      opacity 500ms ease;
+  }
+
+  .sub-bm:hover{
+    border-color: rgba(126,200,255,0.55);
+    background: rgba(126,200,255,0.14);
+    opacity: 1;
+    transform: translateX(1px);
+  }
 
   @media (max-width: 768px){
     .bookmark-pager{ left: 12px; }
@@ -330,4 +342,32 @@
   
   @media (max-width: 768px){
     .bookmark-pager .sub-bm, .bookmark-pager .sub-wrap{ display:none !important; }
+  }
+
+  .intake-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 9999;
+  }
+
+  .intake-modal.is-open {
+    display: block;
+  }
+
+  .intake-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .intake-modal__dialog {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 10vh auto;
+    background: #fff;
+    color: #000;
+    padding: 24px;
+    border-radius: 12px;
   }

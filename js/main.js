@@ -66,12 +66,10 @@ function renderProjectSlide(p){
     <div class="state-pager bookmark-pager" aria-label="Wellness projects">
       <button class="pager-dot" type="button" data-state="0">
         <span class="pager-label">The Wellness Company</span>
-
-        <span class="sub-wrap" aria-hidden="true">
-          <button class="sub-bm" type="button" data-sub="0">Intake Care</button>
-          
-        </span>
       </button>
+      <div class="sub-wrap">
+        <button class="sub-bm" type="button" data-sub="0">Virtual Care Portal</button>
+      </div>
 
       <button class="pager-dot" type="button" data-state="1">
         <span class="pager-label">Holistic Goddess</span>
@@ -126,3 +124,118 @@ function applyResponsiveBgs() {
 
 applyResponsiveBgs();
 window.addEventListener("resize", applyResponsiveBgs);
+
+(function initIntakeModal() {
+  let contentLoaded = false;
+
+  function getModal() {
+    return document.getElementById('intakeModal');
+  }
+
+  function getModalContent() {
+    return document.getElementById('intakeModalContent');
+  }
+
+  async function loadModalContent() {
+    const content = getModalContent();
+    if (!content || contentLoaded) return;
+
+    try {
+      const response = await fetch('sections/care-health.html');
+      if (!response.ok) {
+        throw new Error('Failed to load modal content.');
+      }
+
+      content.innerHTML = await response.text();
+      contentLoaded = true;
+      initCareHealthActions();
+    } catch (error) {
+      content.innerHTML = `<div class="intake-modal__header">
+        <h3 class="intake-modal__title">Error</h3>
+        <button class="intake-modal__close" type="button" data-intake-close="1">✕</button>
+      </div>
+      <div class="intake-modal__body">
+        <p>${error.message}</p>
+      </div>`;
+    }
+  }
+
+  function openModal() {
+    const modal = getModal();
+    if (!modal) return;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    const modal = getModal();
+    if (!modal) return;
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function initCareHealthActions() {
+    const stateSelect = document.getElementById('usa_state');
+    const terms = document.getElementById('terms');
+    const linkButton = document.getElementById('link_button');
+
+    if (!stateSelect || !terms || !linkButton) return;
+
+    function updateButtonState() {
+      const validState = stateSelect.value && stateSelect.value !== 'empty';
+      const agreed = terms.checked;
+
+      linkButton.disabled = !(validState && agreed);
+      linkButton.classList.toggle('button-disabled', !(validState && agreed));
+    }
+
+    stateSelect.addEventListener('change', updateButtonState);
+    terms.addEventListener('change', updateButtonState);
+
+    linkButton.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const state = stateSelect.value;
+      if (!state || state === 'empty' || !terms.checked) return;
+
+      const url = `https://care.twc.health/search_profile?search_key=&licensed_state=${encodeURIComponent(state)}`;
+      window.open(url, '_blank');
+    });
+
+    updateButtonState();
+  }
+
+  document.addEventListener('click', async (e) => {
+    const sub = e.target.closest('.sub-bm[data-sub="0"]');
+    if (!sub) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    await loadModalContent();
+    openModal();
+  }, true);
+
+  document.addEventListener('click', (e) => {
+    const closeHit = e.target.closest('[data-intake-close]');
+    if (!closeHit) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const modal = getModal();
+    if (!modal) return;
+
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+})();
