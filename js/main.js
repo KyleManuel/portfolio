@@ -68,7 +68,19 @@ function renderProjectSlide(p){
         <span class="pager-label">The Wellness Company</span>
       </button>
       <div class="sub-wrap">
-        <button class="sub-bm" type="button" data-sub="0">Virtual Care Portal</button>
+      <button class="sub-bm" type="button" data-sub="0">
+        <span class="sub-bm__row">
+          <span>Virtual Care Portal</span>
+          <img
+            class="sub-bm__icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            alt="Python"
+            width="14"
+            height="14"
+            loading="lazy"
+          />
+        </span>
+      </button>
       </div>
 
       <button class="pager-dot" type="button" data-state="1">

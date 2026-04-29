@@ -344,6 +344,17 @@
     .bookmark-pager .sub-bm, .bookmark-pager .sub-wrap{ display:none !important; }
   }
 
+  .sub-bm__row{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sub-bm__icon{
+    opacity: 0.75;
+    transform: translateY(1px);
+  }
+
   .intake-modal {
     position: fixed;
     inset: 0;
