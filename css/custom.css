@@ -26,7 +26,7 @@
       background-position: center top;
       background-repeat: no-repeat;
       background-size: cover;
-      max-height: 5%;
+      max-height: 7.5%;
       min-height: 0!important;
     }
     .cards-wrap .cards-list{
@@ -55,6 +55,10 @@
       max-height: 240px;
       object-fit: cover;
       border-radius: 12px;
+    }
+    
+    @media (max-width: 768px){
+      .project[class*="fade-"] .content { background: transparent !important; }
     }
 
     /* .cards-wrap .cards-list::-webkit-scrollbar{ display:none; }

@@ -35,6 +35,7 @@ const projects = [
     title: "Chatbot",
     description: "Leading our group's thesis project, we successfully created and implemented our own chatbot on our client's website, providing assistance to customers accessing the website.",
     bg: "assets/img/gallery-1.jpg",
+    mbBg: "assets/img/mob-co-bg.png",
     cards: [
       { img: "assets/img/co-1.png", heading: "Training" },
       { img: "assets/img/co-2.png", heading: "Implementation" },
@@ -50,6 +51,7 @@ const projects = [
     title: "Agile Service Desk",
     description: "Helped developed the ASD capability which is intended to provide a voice platform for Service Desk Agents.",
     bg: "assets/img/gallery-2.png",
+    mbBg: "assets/img/mob-asd-bg.png",
     cards: [
       { img: "assets/img/asd-1.png", heading: "Automation" },
       { img: "assets/img/asd-2.png", heading: "Functionalities" },
@@ -64,6 +66,7 @@ const projects = [
     title: "Priority Workforce Suit",
     description: "Implemented key features for a content management system app designed to support the mental health wellness of frontline healthcare workers.",
     bg: "assets/img/gallery-3.jpg",
+    mbBg: "assets/img/mob-dxc-bg.png",
     cardsLayout: "mobileShots", 
     cards: [
       { img: "assets/img/ss-1.png", heading: "Landing" },

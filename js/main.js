@@ -94,7 +94,7 @@ function renderProjectSlide(p){
   ` : "";
 
   return `
-  <section id="${escapeHtml(p.id)}" class="slide fade-3">
+  <section id="${escapeHtml(p.id)}" class="project slide fade-3">
     ${pagerHtml}
     <div class="content">
       <div class="container">
