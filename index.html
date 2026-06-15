@@ -13,7 +13,7 @@
 	<link href="css/custom.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7344J5MSSB"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-7344J5MSSB"></script> -->
   <script defer src="js/gtag.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
@@ -190,6 +190,36 @@
 
   <div class="intake-modal__panel" role="dialog" aria-modal="true" aria-labelledby="intakeModalTitle">
     <div id="intakeModalContent"></div>
+  </div>
+</div>
+
+<div
+  id="cookie-consent"
+  class="cookie-consent"
+  role="dialog"
+  aria-labelledby="cookie-title"
+  aria-describedby="cookie-description"
+  hidden
+>
+  <div class="cookie-consent__content">
+    <div>
+      <h2 id="cookie-title">This website uses cookies</h2>
+
+      <p id="cookie-description">
+        We use essential cookies to make this website work and optional analytics cookies.
+        You can accept all cookies or continue with necessary cookies only.
+      </p>
+    </div>
+
+    <div class="cookie-consent__actions">
+      <button id="necessary-cookies" type="button">
+        Necessary only
+      </button>
+
+      <button id="accept-cookies" type="button">
+        Accept all
+      </button>
+    </div>
   </div>
 </div>
 
