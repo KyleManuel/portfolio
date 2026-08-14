@@ -1,4 +1,5 @@
 import type { ProjectCard as ProjectCardType } from "@/data/projects";
+import { basePath } from "@/lib/basePath";
 
 type ProjectCardProps = {
   card: ProjectCardType;
@@ -7,7 +8,10 @@ type ProjectCardProps = {
 export function ProjectCard({ card }: ProjectCardProps) {
   return (
     <li className="project-card">
-      <img src={card.image} alt={card.heading} />
+      <img
+        src={`${basePath}${card.image}`}
+        alt={card.heading ?? "Project preview"}
+      />
 
       <div className="project-card-text">
         <h3>{card.heading}</h3>
