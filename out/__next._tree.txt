@@ -1,4 +1,4 @@
-:HL["/portfolio/_next/static/chunks/2tdw85l2vvrb0.css","style"]
+:HL["/portfolio/_next/static/chunks/1adzpm8kwam57.css","style"]
 :HL["/portfolio/_next/static/chunks/0ecm7ohea52ey.css","style"]
 :HL["/portfolio/assets/img/twc-3.webp","image"]
 :HL["/portfolio/assets/img/twc-1.webp","image"]
@@ -17,4 +17,4 @@
 :HL["/portfolio/assets/img/ss-1.png","image"]
 :HL["/portfolio/assets/img/ss-2.png","image"]
 :HL["/portfolio/assets/img/ss-3.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"dWv_V7oyq_lxh23IrCLII"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"EhLbW1QlBCkEpZNJ0_dOP"}

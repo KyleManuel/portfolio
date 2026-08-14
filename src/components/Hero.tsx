@@ -1,6 +1,20 @@
+import { basePath } from "@/lib/basePath";
+
 export function Hero() {
   return (
-    <section className="hero-section" id="home">
+    <section
+      className="hero-section"
+      id="home"
+      style={{
+        backgroundImage: `
+          linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+          ),
+          url("${basePath}/assets/img/background/background-1.jpg")
+        `,
+      }}
+    >
       <div className="hero-content">
         <p className="hero-header">Hi, I&apos;m Kyle!</p>
 
