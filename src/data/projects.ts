@@ -32,8 +32,8 @@ export const projects: Project[] = [
     title: "The Wellness Company",
     liveUrl: "https://twc.health",
     description:
-      "Delivered conversion-focused Shopify features and full-stack enhancements for a live health e-commerce platform, improving performance, scalability, and purchase flow while supporting revenue-critical operations.",
-    tech: ["Shopify", "Liquid", "JavaScript", "GitHub", "Shopify API", "DynamoDB", "Amazon SES"],
+      "Delivered conversion-focused Shopify features, SEO improvements, and full-stack enhancements for a live health e-commerce platform, improving search visibility, performance, scalability, and purchase flow while supporting revenue-critical operations.",
+    tech: ["Shopify", "Liquid", "JavaScript", "SEO", "GA4", "Google Tag Manager", "PageSpeed Insights", "GitHub", "Shopify API", "DynamoDB", "Amazon SES"],
     bg: "/assets/img/gallery-6.png",
     mobileBg: "/assets/img/mob-twc-bg.png",
     accent: "#7ec8ff",
