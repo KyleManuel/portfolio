@@ -9,12 +9,12 @@ export function ContactForm() {
   const [message, setMessage] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
 
+    event.preventDefault();
+    const form = event.currentTarget;
     setStatus("sending");
     setMessage("Sending...");
-
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
 
     const payload = {
       name: String(formData.get("name") || "").trim(),
@@ -43,7 +43,7 @@ export function ContactForm() {
 
       setStatus("success");
       setMessage("Message sent successfully.");
-      event.currentTarget.reset();
+      form.reset();
     } catch (error) {
       setStatus("error");
       setMessage(
